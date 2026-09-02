@@ -1,0 +1,36 @@
+@font-face {
+  font-family: "Outfit";
+  src: url(./assets/fonts/Outfit/Outfit-VariableFont_wght.ttf)
+    format("truetype");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Crimson Text";
+  src: url(./assets/fonts/Crimson_Text/CrimsonText-Regular.ttf)
+    format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Crimson Text";
+  src: url("./assets/fonts/Crimson_Text/CrimsonText-SemiBold.ttf")
+    format("truetype");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+:root {
+  font-family: "Outfit", sans-serif;
+  color: #292824;
+  background-color: #e8e3d8;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
