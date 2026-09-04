@@ -3,7 +3,7 @@ import heroVideo from "../assets/video/hero.mp4";
 
 function Hero() {
   return (
-    <section id="home" className="hero">
+    <section id="home" className="hero" data-header-color="dark">
       <video
         className="hero__video"
         autoPlay

@@ -8,7 +8,7 @@ function SmoothScroll() {
       autoRaf: true,
       lerp: 0.08,
       smoothWheel: true,
-      anchors: true,
+      anchors: true,        
     });
     return () => {
       lenis.destroy();

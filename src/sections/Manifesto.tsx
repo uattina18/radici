@@ -44,6 +44,7 @@ function Manifesto() {
       ref={sectionRef}
       id="manifesto"
       className="manifesto"
+      data-header-color="light"
       aria-labelledby="manifesto-title"
     >
       <div className="manifesto__sticky">

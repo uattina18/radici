@@ -43,7 +43,12 @@ function Method() {
   const [activeStep, setActiveStep] = useState(0);
 
   return (
-    <section id="metodo" className="method" aria-labelledby="method-title">
+    <section
+      id="metodo"
+      className="method"
+      data-header-color="dark"
+      aria-labelledby="method-title"
+    >
       <header className="method__header">
         <h2 id="method-title">Il nostro metodo</h2>
 

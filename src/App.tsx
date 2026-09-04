@@ -3,6 +3,7 @@ import Hero from "./sections/Hero";
 import Manifesto from "./sections/Manifesto";
 import SmoothScroll from "./components/SmoothScroll";
 import Method from "./sections/Method";
+import Materials from "./sections/Materials";
 import "./App.css";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Hero />
         <Manifesto />
         <Method />
+        <Materials />
       </main>
     </div>
   );
