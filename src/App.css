@@ -903,6 +903,8 @@
 .projects-page__list {
   overflow-x: auto;
   overflow-y: hidden;
+  touch-action: pan-x;
+  -webkit-overflow-scrolling: touch;
 
   margin-inline: calc(clamp(24px, 6vw, 110px) * -1);
   padding: 80px clamp(24px, 6vw, 110px) 70px;
@@ -1070,11 +1072,16 @@
 }
 
 @media (max-width: 768px) {
-  .header,
-  .header--scrolled {
+  .header {
     justify-content: space-between;
     padding: 18px 20px;
     background-color: transparent;
+  }
+
+  .header--scrolled {
+    justify-content: space-between;
+    padding: 18px 20px;
+    background-color: #e8e3d8;
   }
 
   .header--mobile-light {
@@ -1304,7 +1311,7 @@
 
   .projects-page__hero h1 {
     margin: 55px 0;
-    font-size: clamp(52px, 16vw, 76px);
+    font-size: clamp(34px, 11vw, 56px);
     line-height: 0.88;
   }
 

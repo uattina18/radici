@@ -11,11 +11,17 @@ function Header() {
 
   useEffect(() => {
     function updateHeader() {
-      setIsScrolled(window.scrollY > 60);
+      const scrolled = window.scrollY > 60;
+      setIsScrolled(scrolled);
 
       const sections = document.querySelectorAll<HTMLElement>(
         "[data-header-color]",
       );
+
+      if (sections.length === 0) {
+        setMobileColor(scrolled ? "dark" : "light");
+        return;
+      }
 
       const checkpoint = 80;
 

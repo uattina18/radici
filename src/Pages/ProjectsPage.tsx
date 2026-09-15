@@ -187,7 +187,7 @@ function ProjectsPage() {
           </p>
         </div>
       </header>
-      <div className="projects-page__list" ref={sliderRef}>
+      <div className="projects-page__list" ref={sliderRef} data-lenis-prevent>
         <div className="projects-page__track" ref={trackRef}>
           {projects.map((project) => (
             <article className="projects-page__project" key={project.slug}>
@@ -195,6 +195,7 @@ function ProjectsPage() {
                 className="projects-page__project-image"
                 src={project.image}
                 alt={project.imageAlt}
+                draggable={false}
               />
 
               <div className="projects-page__project-info">
