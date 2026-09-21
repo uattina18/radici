@@ -1,6 +1,6 @@
-import heroPoster from "../assets/img/hero-poster.png";
+import heroPoster from "../assets/img/hero-poster.jpg";
 import heroVideo from "../assets/video/hero.mp4";
-
+git status
 function Hero() {
   return (
     <section id="home" className="hero" data-header-color="dark">
