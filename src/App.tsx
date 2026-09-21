@@ -2,14 +2,17 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Header from "./components/Header";
 import SmoothScroll from "./components/SmoothScroll";
+import Footer from "./components/Footer";
+import CookieBanner from "./components/CookieBanner";
 
 import Hero from "./sections/Hero";
 import Manifesto from "./sections/Manifesto";
 import Method from "./sections/Method";
 import Materials from "./sections/Materials";
 import Projects from "./sections/Projects";
-
+import Contacts from "./sections/Contacts";
 import ProjectsPage from "./Pages/ProjectsPage";
+import ProjectDetailPage from "./Pages/ProjectDetailPage";
 
 import "./App.css";
 
@@ -21,6 +24,7 @@ function HomePage() {
       <Method />
       <Materials />
       <Projects />
+      <Contacts />
     </main>
   );
 }
@@ -47,7 +51,19 @@ function App() {
               </main>
             }
           />
+
+          <Route
+            path="/progetti/:slug"
+            element={
+              <main id="main-content" tabIndex={-1}>
+                <ProjectDetailPage />
+              </main>
+            }
+          />
         </Routes>
+
+        <Footer />
+        <CookieBanner />
       </div>
     </BrowserRouter>
   );

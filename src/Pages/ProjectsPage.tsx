@@ -9,36 +9,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(useGSAP, Draggable, InertiaPlugin, ScrollTrigger);
 
-import villaGiorgiaCover from "../assets/img/villa-giorgia/villa-giorgia-cover.jpg";
-import villaGiuliaCover from "../assets/img/Villa-Giulia/villa-giulia-cover.jpg";
-import casaAmeliaCover from "../assets/img/Casa-Amelia/casa-amelia-cover.jpg";
-
-const projects = [
-  {
-    id: "01",
-    name: "Villa Giorgia",
-    category: "Residenza privata",
-    slug: "villa-giorgia",
-    image: villaGiorgiaCover,
-    imageAlt: "Villa Giorgia immersa nel verde, vista dalla piscina",
-  },
-  {
-    id: "02",
-    name: "Villa Giulia",
-    category: "Residenza privata",
-    slug: "villa-giulia",
-    image: villaGiuliaCover,
-    imageAlt: "Villa Giulia circondata dalla vegetazione",
-  },
-  {
-    id: "03",
-    name: "Casa Amelia",
-    category: "Residenza privata",
-    slug: "casa-amelia",
-    image: casaAmeliaCover,
-    imageAlt: "Casa Amelia circondata da un giardino alberato",
-  },
-];
+import { projects } from "../data/projects";
 
 function ProjectsPage() {
   const sliderRef = useRef<HTMLDivElement>(null);
@@ -82,7 +53,7 @@ function ProjectsPage() {
 
         const scrollTrigger = ScrollTrigger.create({
           trigger: slider,
-          start: "top top",
+          start: "top 50px",
           end: () => `+=${getDistance() + HOLD_DISTANCE}`,
           pin: true,
           scrub: 1,

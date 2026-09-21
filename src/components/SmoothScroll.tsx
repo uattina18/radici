@@ -4,6 +4,8 @@ import "lenis/dist/lenis.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import { setLenisInstance } from "../lib/lenis";
+
 gsap.registerPlugin(ScrollTrigger);
 
 function SmoothScroll() {
@@ -14,21 +16,20 @@ function SmoothScroll() {
       anchors: true,
     });
 
-    // Ogni volta che Lenis aggiorna lo scroll, avvisa ScrollTrigger
+    setLenisInstance(lenis);
+
     lenis.on("scroll", ScrollTrigger.update);
 
-    // Fai girare Lenis dentro al ciclo di GSAP, non per conto suo
     const update = (time: number) => {
       lenis.raf(time * 1000);
     };
     gsap.ticker.add(update);
 
-    // Evita che GSAP "salti" dei frame per recuperare ritardi:
-    // con Lenis attivo questo causerebbe scatti, meglio disattivarlo
     gsap.ticker.lagSmoothing(0);
 
     return () => {
       gsap.ticker.remove(update);
+      setLenisInstance(null);
       lenis.destroy();
     };
   }, []);

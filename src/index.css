@@ -22,15 +22,46 @@
   font-weight: 600;
   font-display: swap;
 }
+
 :root {
+  /* Font */
+  --font-heading: "Crimson Text", serif;
+
+  /* Colori di tema — questi due si invertono in modalità notte */
+  --color-bg: #e8e3d8;
+  --color-ink: #292824;
+
+  /* Colori fissi del brand — non cambiano mai, chiaro o scuro che sia */
+  --color-cream: #e8e3d8;
+  --color-charcoal: #292824;
+  --color-terra: #a0622b;
+  --color-terra-deep: #a96125;
+  --color-terra-text: #8a5024;
+  --color-sand: #e6bc95;
+  --color-rust: #984c08;
+  --color-white: #fff;
+
+  color-scheme: light;
+
   font-family: "Outfit", sans-serif;
-  color: #292824;
-  background-color: #e8e3d8;
+  color: var(--color-ink);
+  background-color: var(--color-bg);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
+
+[data-theme="dark"] {
+  --color-bg: #292824;
+  --color-ink: #e8e3d8;
+  color-scheme: dark;
+}
+
 *,
 *::before,
 *::after {
-  box-sizing: border-box;           
+  box-sizing: border-box;
 }
