@@ -4,9 +4,12 @@ import { Link, useLocation } from "react-router-dom";
 import { scrollToTop } from "../lib/lenis";
 import ThemeToggle from "./ThemeToggle";
 
-
 import logoWhite from "../assets/img/radici_logo_whitesvg.svg";
 import logoDark from "../assets/img/radici_logo_black.svg";
+
+function getIsDarkTheme() {
+  return document.documentElement.getAttribute("data-theme") === "dark";
+}
 
 type HeaderColor = "light" | "dark";
 
@@ -23,6 +26,7 @@ function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileColor, setMobileColor] = useState<HeaderColor>("light");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDarkTheme, setIsDarkTheme] = useState(getIsDarkTheme);
   const location = useLocation();
 
   useEffect(() => {
@@ -68,6 +72,19 @@ function Header() {
     };
   }, []);
 
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      setIsDarkTheme(getIsDarkTheme());
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   // Chiude il menu ogni volta che cambia pagina
 
   useEffect(() => {
@@ -105,13 +122,21 @@ function Header() {
             <source
               media="(max-width:768px)"
               srcSet={
-                (isMenuOpen ? "dark" : mobileColor) === "light"
+                isDarkTheme
                   ? logoWhite
-                  : logoDark
+                  : (isMenuOpen ? "dark" : mobileColor) === "light"
+                    ? logoWhite
+                    : logoDark
               }
             />
             <img
-              src={isScrolled || isMenuOpen ? logoDark : logoWhite}
+              src={
+                isDarkTheme
+                  ? logoWhite
+                  : isScrolled || isMenuOpen
+                    ? logoDark
+                    : logoWhite
+              }
               alt="Radici"
             />
           </picture>
@@ -119,8 +144,6 @@ function Header() {
 
         <div className="header__controls">
           <ThemeToggle />
-          
-
 
           <button
             className="header__menu"
