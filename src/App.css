@@ -1730,6 +1730,16 @@
   outline: 2px solid var(--color-terra);
   outline-offset: 2px;
 }
+
+[data-theme="dark"] .method__button {
+  color: var(--color-cream);
+}
+
+[data-theme="dark"] .method__button:hover,
+[data-theme="dark"] .method__button:focus-visible,
+[data-theme="dark"] .method__step--active .method__button {
+  color: var(--color-terra);
+}
 @media (max-width: 600px) {
   .cookie-banner {
     left: 16px;
