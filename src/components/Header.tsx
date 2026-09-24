@@ -129,9 +129,11 @@ function Header() {
               srcSet={
                 isDarkTheme
                   ? logoWhite
-                  : (isMenuOpen ? "dark" : mobileColor) === "light"
-                    ? logoWhite
-                    : logoDark
+                  : isScrolled || isMenuOpen
+                    ? logoDark
+                    : mobileColor === "light"
+                      ? logoWhite
+                      : logoDark
               }
             />
             <img
