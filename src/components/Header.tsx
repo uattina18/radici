@@ -8,7 +8,12 @@ import logoWhite from "../assets/img/radici_logo_whitesvg.svg";
 import logoDark from "../assets/img/radici_logo_black.svg";
 
 function getIsDarkTheme() {
-  return document.documentElement.getAttribute("data-theme") === "dark";
+  if (typeof window === "undefined") return false;
+  const saved = localStorage.getItem("radici-theme");
+  if (saved === "dark") return true;
+  if (saved === "light") return false;
+
+  return window.matchMedia("(prefers-color-scheme: dark)").matches;
 }
 
 type HeaderColor = "light" | "dark";
